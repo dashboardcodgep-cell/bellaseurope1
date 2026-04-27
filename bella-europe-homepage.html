@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Europe | Luxury K-Beauty Skincare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF8F5;
+    --charcoal: #1A1A1A;
+    --gold: #B8995A;
+    --warm: #EDE7DC;
+    --dark-bg: #1C1812;
+    --trust-bg: #2C2519;
+    --footer-bg: #F0EBE2;
+    --muted: #6a5f57;
+    --border: #E0D8CE;
+    --gold-light: #F5EDD8;
+    --gold-text: #8A6B2A;
+    --green-light: #EAF3DE;
+    --green-text: #3B6D11;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--trust-bg);
+    color: #E8DFC8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 11px 24px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .trust-dot {
+    width: 3px; height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    background: var(--cream);
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 62px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-left { display: flex; align-items: center; gap: 40px; }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 0.14em;
+    font-weight: 400;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-links a.active { border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .nav-quiz {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--gold);
+    padding: 6px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .nav-quiz:hover { background: var(--gold); color: #fff; }
+  .nav-icon { width: 18px; height: 18px; cursor: pointer; stroke: var(--muted); }
+  .cart-wrap { position: relative; cursor: pointer; }
+  .cart-badge {
+    position: absolute; top: -6px; right: -7px;
+    background: var(--gold); color: #fff;
+    border-radius: 50%; width: 15px; height: 15px;
+    font-size: 9px; display: flex; align-items: center; justify-content: center;
+    font-weight: 500;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+  .hero-left {
+    background: #EDE7DC;
+    padding: 72px 56px 72px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+  .eyebrow-line { height: 0.5px; width: 32px; background: var(--gold); }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+  .hero-h1 em { font-style: italic; }
+  .hero-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 360px;
+    margin-bottom: 8px;
+  }
+  .hero-price {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    margin-bottom: 36px;
+    font-weight: 500;
+  }
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 44px; }
+  .btn-primary {
+    background: var(--charcoal);
+    color: var(--cream);
+    border: none;
+    padding: 14px 40px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--charcoal);
+    border: 0.5px solid var(--charcoal);
+    padding: 13px 32px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--charcoal); color: var(--cream); }
+  .hero-stats {
+    display: flex;
+    border-top: 0.5px solid #D8D0C0;
+    padding-top: 28px;
+    gap: 0;
+  }
+  .hero-stat { flex: 1; }
+  .hero-stat + .hero-stat {
+    padding-left: 24px;
+    border-left: 0.5px solid #D8D0C0;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-stars { display: flex; gap: 2px; margin-bottom: 5px; }
+  .star { color: var(--gold); font-size: 11px; }
+  .stat-lbl { font-size: 10px; color: #9a8c7e; letter-spacing: 0.06em; }
+  .hero-right {
+    background: #DDD6C8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 160px;
+    font-weight: 300;
+    color: rgba(200,185,160,0.25);
+    letter-spacing: -6px;
+    user-select: none;
+    line-height: 1;
+  }
+  .hero-bottle {
+    width: 36%;
+    background: var(--cream);
+    aspect-ratio: 2/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-bottle-inner {
+    width: 52%;
+    height: 52%;
+    background: #C8BAA0;
+    border-radius: 2px;
+  }
+  .hero-floater {
+    position: absolute;
+    bottom: 36px;
+    left: 28px;
+    background: var(--cream);
+    border: 0.5px solid #D8D0C0;
+    padding: 14px 18px;
+    z-index: 2;
+    min-width: 170px;
+  }
+  .floater-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--gold-light);
+    color: var(--gold-text);
+    padding: 3px 8px;
+    font-weight: 500;
+    margin-bottom: 7px;
+  }
+  .floater-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+  .floater-price { font-size: 13px; color: var(--gold); font-weight: 500; }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 60px 40px; }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .sec-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a8c7e;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .sec-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.15;
+  }
+  .divider { height: 0.5px; background: var(--border); margin: 0 40px; }
+
+  /* ── FILTER BAR ── */
+  .filter-wrap { text-align: center; margin: 20px 0 40px; }
+  .filter-bar {
+    display: inline-flex;
+    border: 0.5px solid var(--border);
+    overflow: hidden;
+  }
+  .filter-btn {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border: none;
+    border-right: 0.5px solid var(--border);
+    background: transparent;
+    color: #7A6A52;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.15s;
+  }
+  .filter-btn:last-child { border-right: none; }
+  .filter-btn.active { background: var(--charcoal); color: var(--cream); font-weight: 500; }
+  .filter-btn:not(.active):hover { background: #F5F0EA; }
+
+  /* ── PRODUCT GRID ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .product-card {
+    background: #fff;
+    border: 0.5px solid #EBE4D8;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .product-card:hover { border-color: var(--gold); }
+  .product-img {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #F5F0EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .product-img-inner {
+    width: 58%;
+    height: 58%;
+    background: #E0D8CC;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-img-label {
+    font-size: 9px;
+    color: #A89A88;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    font-weight: 500;
+  }
+  .badge-gold { background: var(--gold-light); color: var(--gold-text); }
+  .badge-new { background: var(--green-light); color: var(--green-text); }
+  .product-info { padding: 14px 16px 18px; }
+  .product-name {
+    font-size: 12px;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+  .product-stars { display: flex; align-items: center; gap: 1px; margin-bottom: 9px; }
+  .product-reviews { font-size: 10px; color: #9a8c7e; margin-left: 4px; }
+  .product-price { font-size: 14px; color: var(--charcoal); font-weight: 500; margin-bottom: 13px; }
+  .product-add {
+    width: 100%;
+    background: transparent;
+    border: 0.5px solid #C8B89A;
+    padding: 9px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6a5f57;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .product-add:hover { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
+  .view-all { text-align: center; margin-top: 40px; }
+  .btn-outline {
+    background: transparent;
+    color: var(--charcoal);
+    border: 0.5px solid var(--charcoal);
+    padding: 14px 48px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+
+  /* ── CATEGORIES ── */
+  .cats-section { padding: 56px 40px; background: #F5F0EA; }
+  .cats-grid-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .cats-grid-bot {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .cat-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+  .cat-card-tall { min-height: 200px; }
+  .cat-card-short { min-height: 130px; }
+  .cat-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,10,5,0.58) 0%, transparent 60%);
+    transition: opacity 0.2s;
+  }
+  .cat-card:hover .cat-overlay { opacity: 0.8; }
+  .cat-label {
+    position: relative;
+    z-index: 1;
+    padding: 16px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #FAF8F5;
+    font-weight: 500;
+  }
+
+  /* ── JOURNAL ── */
+  .journal-section { padding: 60px 40px; background: var(--cream); }
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .journal-card {
+    background: #fff;
+    border: 0.5px solid #EBE4D8;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .journal-card:hover { border-color: var(--gold); }
+  .journal-thumb {
+    height: 180px;
+    background: #F0EBE2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .journal-thumb-inner {
+    width: 52%;
+    height: 52%;
+    background: #DDD5C5;
+    border-radius: 2px;
+  }
+  .journal-cat {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--cream);
+    color: var(--muted);
+    padding: 3px 9px;
+    font-weight: 500;
+  }
+  .journal-body { padding: 20px 22px 24px; }
+  .journal-date {
+    font-size: 10px;
+    color: #9a8c7e;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+  }
+  .journal-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--charcoal);
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .journal-read {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--dark-bg);
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .nl-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .nl-line { height: 0.5px; width: 28px; background: var(--gold); }
+  .nl-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: #F0E8D8;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .nl-title em { font-style: italic; }
+  .nl-desc {
+    font-size: 13px;
+    color: rgba(240,232,216,0.52);
+    margin-bottom: 32px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+  }
+  .nl-perks {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  .nl-perk {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: rgba(240,232,216,0.48);
+  }
+  .nl-perk-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+  .nl-form {
+    display: flex;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto 18px;
+  }
+  .nl-input {
+    flex: 1;
+    background: transparent;
+    border: 0.5px solid rgba(240,232,216,0.22);
+    border-right: none;
+    color: #F0E8D8;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+  }
+  .nl-input::placeholder { color: rgba(240,232,216,0.28); font-size: 12px; }
+  .nl-btn {
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .nl-btn:hover { opacity: 0.88; }
+  .nl-fine { font-size: 10px; color: rgba(240,232,216,0.26); letter-spacing: 0.05em; }
+
+  /* ── FOOTER ── */
+  .footer { background: var(--footer-bg); padding: 60px 40px 28px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 52px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-desc {
+    font-size: 13px;
+    color: #7a6a5a;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 240px;
+  }
+  .footer-socials { display: flex; gap: 8px; }
+  .footer-social {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 0.5px solid #C8B89A;
+    color: #7A6A52;
+    padding: 7px 14px;
+    cursor: pointer;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+  .footer-social:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .footer-col-title {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: #7a6a5a;
+    margin-bottom: 11px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 0.5px solid #D8D0C0;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy { font-size: 11px; color: #9a8c7e; }
+  .pay-icons { display: flex; gap: 8px; }
+  .pay-icon {
+    font-size: 9px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border: 0.5px solid #C8B89A;
+    color: #9a8c7e;
+    padding: 5px 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span>Free UK delivery on orders over £25</span>
+  <span class="trust-dot"></span>
+  <span>30-day hassle-free returns</span>
+  <span class="trust-dot"></span>
+  <span>100% Vegan &amp; Cruelty-Free</span>
+  <span class="trust-dot"></span>
+  <span>Rated 4.9 / 5 by 2,400+ customers</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="#" class="nav-logo serif">BELLA EUROPE</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Balance</a></li>
+      <li><a href="#">Radiance</a></li>
+      <li><a href="#">Renew</a></li>
+      <li><a href="#">Advanced</a></li>
+      <li><a href="#">Hydrate</a></li>
+      <li><a href="#">Journal</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="nav-quiz">Find your routine</button>
+    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <div class="cart-wrap">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-badge">2</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      Luxury K-Beauty · Curated for the UK
+      <span class="eyebrow-line"></span>
+    </div>
+    <h1 class="hero-h1 serif">The Radiance<br><em>Ritual</em></h1>
+    <p class="hero-desc">PDRN + Glutathione Ampoule — your daily concentrate for dewy, luminous, glass skin.</p>
+    <p class="hero-price">From £29.95 · Free UK delivery over £25</p>
+    <div class="hero-ctas">
+      <button class="btn-primary">Shop now</button>
+      <button class="btn-ghost">Find my routine</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num serif">4.9</div>
+        <div class="stat-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="stat-lbl">2,400+ verified reviews</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num serif">30+</div>
+        <div style="height:19px"></div>
+        <div class="stat-lbl">Curated products</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num serif">100%</div>
+        <div style="height:19px"></div>
+        <div class="stat-lbl">Cruelty-free &amp; vegan</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-text serif">BE</div>
+    <div class="hero-bottle">
+      <div class="hero-bottle-inner"></div>
+    </div>
+    <div class="hero-floater">
+      <span class="floater-badge">Bestseller</span>
+      <div class="floater-name serif">PDRN + Glutathione<br>Ampoule · 30ml</div>
+      <div class="floater-price">£49.95</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NEW ARRIVALS -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-label">Curation</div>
+    <h2 class="sec-title serif">New Arrivals</h2>
+  </div>
+  <div class="filter-wrap">
+    <div class="filter-bar">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Radiance</button>
+      <button class="filter-btn">Hydrate</button>
+      <button class="filter-btn">Balance</button>
+      <button class="filter-btn">K-Beauty</button>
+    </div>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-inner"><span class="product-img-label">Serum</span></div>
+        <span class="product-badge badge-gold">Bestseller</span>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Luminous C Radiance Serum · 30ml</p>
+        <div class="product-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="product-reviews">(142)</span></div>
+        <p class="product-price">£42.95</p>
+        <button class="product-add">Add to bag</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-inner"><span class="product-img-label">Ampoule</span></div>
+        <span class="product-badge badge-new">New</span>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Aqua Jelly PDRN Bubble Serum · 50ml</p>
+        <div class="product-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="product-reviews">(38)</span></div>
+        <p class="product-price">£49.95</p>
+        <button class="product-add">Add to bag</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-inner"><span class="product-img-label">Essence</span></div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">COSRX Snail 96 Mucin Power Essence 100ml</p>
+        <div class="product-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="product-reviews">(287)</span></div>
+        <p class="product-price">£24.90</p>
+        <button class="product-add">Add to bag</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-inner"><span class="product-img-label">Mask</span></div>
+      </div>
+      <div class="product-info">
+        <p class="product-name">Laneige Lip Sleeping Mask Berry 20g</p>
+        <div class="product-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="product-reviews">(94)</span></div>
+        <p class="product-price">£22.50</p>
+        <button class="product-add">Add to bag</button>
+      </div>
+    </div>
+  </div>
+  <div class="view-all"><button class="btn-outline">View all products</button></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CATEGORIES -->
+<section class="cats-section">
+  <div class="sec-head" style="margin-bottom:32px">
+    <div class="sec-label">Collections</div>
+    <h2 class="sec-title serif" style="font-size:30px">Shop by category</h2>
+  </div>
+  <div class="cats-grid-top">
+    <div class="cat-card cat-card-tall" style="background:#E2D9CC"><div class="cat-overlay"></div><div class="cat-label">Gift Sets</div></div>
+    <div class="cat-card cat-card-tall" style="background:#D8D0C2"><div class="cat-overlay"></div><div class="cat-label">Skincare</div></div>
+    <div class="cat-card cat-card-tall" style="background:#E0D8CE"><div class="cat-overlay"></div><div class="cat-label">Fragrance</div></div>
+    <div class="cat-card cat-card-tall" style="background:#D4CCC0"><div class="cat-overlay"></div><div class="cat-label">Hair</div></div>
+  </div>
+  <div class="cats-grid-bot">
+    <div class="cat-card cat-card-short" style="background:#DACFC2"><div class="cat-overlay"></div><div class="cat-label">Tools</div></div>
+    <div class="cat-card cat-card-short" style="background:#D0C8BC"><div class="cat-overlay"></div><div class="cat-label">Makeup</div></div>
+    <div class="cat-card cat-card-short" style="background:#DED8CC"><div class="cat-overlay"></div><div class="cat-label">Body</div></div>
+    <div class="cat-card cat-card-short" style="background:#C8C0B4"><div class="cat-overlay"></div><div class="cat-label">Sales &amp; Offers</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- JOURNAL -->
+<section class="journal-section">
+  <div class="sec-head">
+    <div class="sec-label">Knowledge</div>
+    <h2 class="sec-title serif">From the Journal</h2>
+  </div>
+  <div class="journal-grid">
+    <div class="journal-card">
+      <div class="journal-thumb"><div class="journal-thumb-inner"></div><span class="journal-cat">K-Beauty</span></div>
+      <div class="journal-body">
+        <p class="journal-date">Apr 2026</p>
+        <p class="journal-title serif">Best Serums for Oily Skin: Our Top Picks for 2026</p>
+        <a href="#" class="journal-read">Read more →</a>
+      </div>
+    </div>
+    <div class="journal-card">
+      <div class="journal-thumb"><div class="journal-thumb-inner"></div><span class="journal-cat">Ingredients</span></div>
+      <div class="journal-body">
+        <p class="journal-date">Mar 2026</p>
+        <p class="journal-title serif">What is PDRN? The K-Beauty Ingredient Transforming Skincare</p>
+        <a href="#" class="journal-read">Read more →</a>
+      </div>
+    </div>
+    <div class="journal-card">
+      <div class="journal-thumb"><div class="journal-thumb-inner"></div><span class="journal-cat">Routine</span></div>
+      <div class="journal-body">
+        <p class="journal-date">Feb 2026</p>
+        <p class="journal-title serif">How to Build a K-Beauty Skincare Routine: Step by Step</p>
+        <a href="#" class="journal-read">Read more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="nl-eyebrow"><span class="nl-line"></span>Community<span class="nl-line"></span></div>
+  <h2 class="nl-title serif">Be part of something<br><em>beautiful</em></h2>
+  <p class="nl-desc">Join over 10,000 K-Beauty enthusiasts. VIP early access, restock alerts, and expert skincare guides delivered to your inbox.</p>
+  <div class="nl-perks">
+    <span class="nl-perk"><span class="nl-perk-dot"></span>No spam, ever</span>
+    <span class="nl-perk"><span class="nl-perk-dot"></span>Unsubscribe anytime</span>
+    <span class="nl-perk"><span class="nl-perk-dot"></span>VIP offers first</span>
+  </div>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="Your email address">
+    <button class="nl-btn">Subscribe</button>
+  </div>
+  <p class="nl-fine">By subscribing you agree to receive marketing emails. You can unsubscribe at any time.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo serif">Bella Europe</div>
+      <div class="footer-tagline">Luxury K-Beauty · United Kingdom</div>
+      <p class="footer-desc">A curated edit of the finest K-Beauty skincare, delivered to your door across the UK. Vegan, cruelty-free, and chosen with care.</p>
+      <div class="footer-socials">
+        <button class="footer-social">Instagram</button>
+        <button class="footer-social">TikTok</button>
+        <button class="footer-social">Facebook</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Departments</p>
+      <a href="#">Balance</a>
+      <a href="#">Radiance</a>
+      <a href="#">Renew</a>
+      <a href="#">Advanced</a>
+      <a href="#">Hydrate</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Bella Europe</p>
+      <a href="#">About Us</a>
+      <a href="#">Journal</a>
+      <a href="#">Skin Quiz</a>
+      <a href="#">Customer Service</a>
+      <a href="#">Stockists</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Support</p>
+      <a href="#">Shipping &amp; Returns</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Payment Methods</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Bella Europe Ltd. All rights reserved.</span>
+    <div class="pay-icons">
+      <span class="pay-icon">Visa</span>
+      <span class="pay-icon">Mastercard</span>
+      <span class="pay-icon">PayPal</span>
+      <span class="pay-icon">JCB</span>
+      <span class="pay-icon">Amex</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
